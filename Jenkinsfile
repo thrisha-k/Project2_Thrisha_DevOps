@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'docker run -it -d --name con_v1 thrisha123/project2image:v1'
+        sh 'docker run -it -d --name con_v1 -p 8000:80 thrisha123/project2image:v1'
       }
     }
     stage('Login') {
