@@ -6,12 +6,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-	sh 'docker build -t thrisha123/project2image:v1 .'
+	sh 'docker build -t thrisha123/project2image:v2 .'
       }
     }
     stage('Deploy') {
       steps {
-        sh 'docker run -it -d --name con_v1 -p 8000:80 thrisha123/project2image:v1'
+        sh 'docker run -it -d --name con_v1 -p 8001:80 thrisha123/project2image:v2'
       }
     }
     stage('Login') {
@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push thrisha123/project2image:v1'
+        sh 'docker push thrisha123/project2image:v2'
       }
     }    
   }
